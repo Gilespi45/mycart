@@ -1,0 +1,22 @@
+nav{
+     height: 15vh;
+    background-color: rgb(231, 231, 231);
+    display: flex;  
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    
+}
+ul li {
+    margin-right: 15px;
+    font-size: 20px;
+    
+}
+Link{
+    text-decoration: none;
+}

@@ -1,0 +1,30 @@
+.product-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+  }
+  
+  .card p {
+    margin: 8px 0;
+  }
+  
+  .card button {
+    padding: 8px 16px;
+    background-color:navy;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .card button:hover{
+    background-color: #f44336;
+  }
+  
