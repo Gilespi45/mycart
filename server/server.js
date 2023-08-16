@@ -5,6 +5,7 @@ const productRoutes = require("./routes/products");
 const purchaseRoutes = require("./routes/purchases");
 const cors = require('cors');
 const path = require('path');
+const { send } = require("process");
 require('dotenv').config();
 
 
@@ -44,6 +45,11 @@ mongoose
 app.use("/users", userRoutes);
 app.use("/products", productRoutes);
 app.use("/purchases", purchaseRoutes);
+
+app.get('/', async (req, res) => {
+ 
+  res.json({ message: 'User added successfully' });
+});
 
 // Start the server
 app.listen(PORT, () => {
