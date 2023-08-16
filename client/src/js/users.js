@@ -8,10 +8,11 @@ function Users() {
   useEffect(() => {
     fetchUsers();
   }, []);
+  const userApiUrl = 'https://mycart-api.vercel.app/users';
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/users');
+      const response = await axios.get(userApiUrl);
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);

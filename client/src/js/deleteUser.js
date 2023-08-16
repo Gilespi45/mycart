@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../css/deleteUser.css';
 import Swal from 'sweetalert2';
 
+const userApiUrl = 'https://mycart-api.vercel.app/users';
+
 const DeleteUser = () => {
   const [users, setUsers] = useState([]);
 
@@ -12,7 +14,7 @@ const DeleteUser = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/users');
+      const response = await axios.get(userApiUrl);
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users', error);
@@ -31,7 +33,7 @@ const DeleteUser = () => {
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:4000/users/${userId}`);
+        await axios.delete(`https://mycart-api.vercel.app/users/${userId}`);
         fetchUsers();
         Swal.fire('Deleted!', 'The user has been deleted.', 'success');
       } else if (result.dismiss === Swal.DismissReason.cancel) {

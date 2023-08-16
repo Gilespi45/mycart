@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../css/addUser.css';
 import Swal from 'sweetalert2';
 
+const userApiUrl = 'https://mycart-api.vercel.app/users';
+
 const AddUser = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -26,7 +28,7 @@ const AddUser = () => {
     };
 
     try {
-      await axios.post('http://localhost:4000/users', user);
+      await axios.post(userApiUrl, user);
       Swal.fire({
         icon: 'success',
         title: 'Success',

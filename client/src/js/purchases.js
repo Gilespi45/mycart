@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../css/purchase.css'
 
+const productApiUrl = 'https://mycart-api.vercel.app/products';
+const userApiUrl = 'https://mycart-api.vercel.app/users';
+const purchaseApiUrl = 'https://mycart-api.vercel.app/purchases';
+
 function Purchases() {
   const [purchases, setPurchases] = useState([]);
   const [users, setUsers] = useState({});
@@ -13,7 +17,7 @@ function Purchases() {
 
   const fetchPurchases = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/purchases');
+      const response = await axios.get(purchaseApiUrl);
       setPurchases(response.data);
     } catch (error) {
       console.error('Error fetching purchases:', error);
@@ -24,7 +28,7 @@ function Purchases() {
     const fetchUserData = async () => {
       const userIds = purchases.map((purchase) => purchase.user_id);
       try {
-        const response = await axios.get('http://localhost:4000/users', {
+        const response = await axios.get(userApiUrl, {
           params: { ids: userIds },
         });
         const userMap = response.data.reduce((map, user) => {
@@ -40,7 +44,7 @@ function Purchases() {
     const fetchProductData = async () => {
       const productIds = purchases.map((purchase) => purchase.product_id);
       try {
-        const response = await axios.get('http://localhost:4000/products', {
+        const response = await axios.get(productApiUrl, {
           params: { ids: productIds },
         });
         const productMap = response.data.reduce((map, product) => {

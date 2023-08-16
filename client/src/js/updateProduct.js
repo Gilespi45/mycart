@@ -13,10 +13,11 @@ const UpdateProduct = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
+  const productApiUrl = 'https://mycart-api.vercel.app/products';
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/products');
+      const response = await axios.get(productApiUrl);
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -44,7 +45,7 @@ const UpdateProduct = () => {
         name: updatedName,
         price: updatedPrice,
       };
-      await axios.put(`http://localhost:4000/products/${_id}`, updatedProduct);
+      await axios.put(`https://mycart-api.vercel.app/products/${_id}`, updatedProduct);
       closeModal();
       fetchProducts();
       Swal.fire({

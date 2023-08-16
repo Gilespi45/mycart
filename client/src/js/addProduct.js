@@ -3,6 +3,9 @@ import axios from 'axios';
 import '../css/addproduct.css'
 import Swal from 'sweetalert2';
 
+
+const productApiUrl = 'https://mycart-api.vercel.app/products';
+
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -29,7 +32,7 @@ const AddProduct = () => {
     formData.append('image', image);
 
     try {
-      await axios.post('http://localhost:4000/products', formData, {
+      await axios.post(productApiUrl, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

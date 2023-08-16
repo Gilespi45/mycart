@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../css/deleteproduct.css'
 import Swal from 'sweetalert2';
 
+const productApiUrl = 'https://mycart-api.vercel.app/products';
+
 const DeleteProduct = () => {
   const [products, setProducts] = useState([]);
 
@@ -12,7 +14,7 @@ const DeleteProduct = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/products');
+      const response = await axios.get(productApiUrl);
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
