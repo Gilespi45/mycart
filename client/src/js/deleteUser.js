@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../css/deleteUser.css';
 import Swal from 'sweetalert2';
 
-const userApiUrl = 'https://mycart-api.vercel.app/users';
+const userApiUrl = 'https://mycart-vercel-api.vercel.app/users';
 
 const DeleteUser = () => {
   const [users, setUsers] = useState([]);
@@ -33,7 +33,7 @@ const DeleteUser = () => {
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`https://mycart-api.vercel.app/users/${userId}`);
+        await axios.delete(`https://mycart-vercel-api.vercel.app/users/${userId}`);
         fetchUsers();
         Swal.fire('Deleted!', 'The user has been deleted.', 'success');
       } else if (result.dismiss === Swal.DismissReason.cancel) {

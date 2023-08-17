@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../css/deleteproduct.css'
 import Swal from 'sweetalert2';
 
-const productApiUrl = 'https://mycart-api.vercel.app/products';
+const productApiUrl = 'https://mycart-vercel-api.vercel.app/products';
 
 const DeleteProduct = () => {
   const [products, setProducts] = useState([]);
@@ -23,7 +23,7 @@ const DeleteProduct = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://localhost:4000/products/${productId}`);
+      await axios.delete(`http://mycart-vercel-api.vercel.app/products/${productId}`);
       fetchProducts();
       Swal.fire({
         icon: 'success',
