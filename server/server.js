@@ -31,7 +31,7 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URL, {
+  .connect('mongodb+srv://gilespi45:tqI0BweDTpLKon5U@mycart-vercel.d2famit.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
