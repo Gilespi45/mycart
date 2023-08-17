@@ -15,10 +15,7 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-  origin: [
-    'https://mycart-vercel.vercel.app',      // Frontend URL
-    'https://mycart-vercel-api.vercel.app'   // Backend URL
-  ] 
+  origin: '*'
 }));
 app.use(express.json());
 // app.use(express.json());
