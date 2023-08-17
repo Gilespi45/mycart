@@ -31,7 +31,7 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 
 // Connect to MongoDB
 mongoose
-  .connect('mongodb+srv://gilespi45:tqI0BweDTpLKon5U@mycart-vercel.d2famit.mongodb.net/?retryWrites=true&w=majority', {
+  .connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -41,7 +41,7 @@ mongoose
   .catch((error) => {
     console.error("Error connecting to MongoDB:", error);
   });
-  mongoConnect();
+
 
 // API routes
 app.use("/users", userRoutes);
