@@ -28,7 +28,7 @@ function Products() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(userApiUrl);
+      const response = await axios.get(userApiUrl,{ withCredentials: true });
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
