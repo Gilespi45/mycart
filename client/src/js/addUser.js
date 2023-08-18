@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../css/addUser.css';
 import Swal from 'sweetalert2';
 
-const userApiUrl = 'http://localhost:4000/users';
+const userApiUrl = 'https://mycart-vercel-api.vercel.app/users';
 
 const AddUser = () => {
   const [name, setName] = useState('');
