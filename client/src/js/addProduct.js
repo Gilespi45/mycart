@@ -36,7 +36,7 @@ const AddProduct = () => {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-      });
+      }, { withCredentials: true });
 
       // Clear form fields
       setName('');

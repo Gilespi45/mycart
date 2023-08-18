@@ -17,7 +17,7 @@ function Purchases() {
 
   const fetchPurchases = async () => {
     try {
-      const response = await axios.get(purchaseApiUrl);
+      const response = await axios.get(purchaseApiUrl, { withCredentials: true });
       setPurchases(response.data);
     } catch (error) {
       console.error('Error fetching purchases:', error);
@@ -30,6 +30,7 @@ function Purchases() {
       try {
         const response = await axios.get(userApiUrl, {
           params: { ids: userIds },
+          withCredentials: true,
         });
         const userMap = response.data.reduce((map, user) => {
           map[user._id] = user.name;
@@ -46,6 +47,7 @@ function Purchases() {
       try {
         const response = await axios.get(productApiUrl, {
           params: { ids: productIds },
+          withCredentials: true,
         });
         const productMap = response.data.reduce((map, product) => {
           map[product._id] = product.name;

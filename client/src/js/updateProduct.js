@@ -17,7 +17,7 @@ const UpdateProduct = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(productApiUrl);
+      const response = await axios.get(productApiUrl,{withCredentials: true});
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -45,7 +45,7 @@ const UpdateProduct = () => {
         name: updatedName,
         price: updatedPrice,
       };
-      await axios.put(`https://mycart-vercel-api.vercel.app/products/${_id}`, updatedProduct);
+      await axios.put(`https://mycart-vercel-api.vercel.app/products/${_id}`, updatedProduct,{withCredentials: true});
       closeModal();
       fetchProducts();
       Swal.fire({

@@ -14,7 +14,7 @@ const DeleteProduct = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(productApiUrl);
+      const response = await axios.get(productApiUrl,{withCredentials: true});
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -23,7 +23,7 @@ const DeleteProduct = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://mycart-vercel-api.vercel.app/products/${productId}`);
+      await axios.delete(`http://mycart-vercel-api.vercel.app/products/${productId}`, { withCredentials: true });
       fetchProducts();
       Swal.fire({
         icon: 'success',

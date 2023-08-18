@@ -50,8 +50,14 @@ app.use("/products", productRoutes);
 app.use("/purchases", purchaseRoutes);
 
 app.get('/', async (req, res) => {
+  try{
+
+    res.json({ message: 'successfully ' });
+  }catch(error){
+    res.json({massage:'error on api'});
+    console.log(error);
+  }
  
-  res.json({ message: 'User added successfully' });
 });
 
 // Start the server

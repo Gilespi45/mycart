@@ -19,7 +19,7 @@ function Products() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(productApiUrl);
+      const response = await axios.get(productApiUrl,{ withCredentials: true });
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -45,7 +45,7 @@ function Products() {
       await axios.post(purchaseApiUrl, {
         user_id: selectedUserId,
         product_id: productId,
-      });
+      }, { withCredentials: true });
       Swal.fire('Success', 'Product purchased successfully.', 'success');
     } catch (error) {
       console.error('Error purchasing product:', error);

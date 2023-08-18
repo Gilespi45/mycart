@@ -14,7 +14,7 @@ const DeleteUser = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(userApiUrl);
+      const response = await axios.get(userApiUrl, { withCredentials: true });
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users', error);
@@ -33,7 +33,7 @@ const DeleteUser = () => {
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`https://mycart-vercel-api.vercel.app/users/${userId}`);
+        await axios.delete(`https://mycart-vercel-api.vercel.app/users/${userId}`, { withCredentials: true });
         fetchUsers();
         Swal.fire('Deleted!', 'The user has been deleted.', 'success');
       } else if (result.dismiss === Swal.DismissReason.cancel) {

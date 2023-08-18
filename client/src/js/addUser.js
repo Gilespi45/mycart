@@ -28,7 +28,7 @@ const AddUser = () => {
     };
 
     try {
-      await axios.post(userApiUrl, user);
+      await axios.post(userApiUrl, user,{ withCredentials: true });
       Swal.fire({
         icon: 'success',
         title: 'Success',
