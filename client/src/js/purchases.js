@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../css/purchase.css'
 
-const productApiUrl = 'https://mycart-vercel-api.vercel.app/products';
-const userApiUrl = 'https://mycart-vercel-api.vercel.app/users';
-const purchaseApiUrl = 'https://mycart-vercel-api.vercel.app/purchases';
+const productApiUrl = 'http://localhost:4000/products';
+const userApiUrl = 'http://localhost:4000/users';
+const purchaseApiUrl = 'http://localhost:4000/purchases';
 
 function Purchases() {
   const [purchases, setPurchases] = useState([]);

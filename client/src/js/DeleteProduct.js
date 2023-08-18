@@ -23,7 +23,7 @@ const DeleteProduct = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://mycart-vercel-api.vercel.app/products/${productId}`, { withCredentials: true });
+      await axios.delete(`http://localhost:4000/products/${productId}`, { withCredentials: true });
       fetchProducts();
       Swal.fire({
         icon: 'success',

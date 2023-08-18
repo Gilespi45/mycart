@@ -13,7 +13,7 @@ const UpdateProduct = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
-  const productApiUrl = 'https://mycart-vercel-api.vercel.app/products';
+  const productApiUrl = 'http://localhost:4000/products';
 
   const fetchProducts = async () => {
     try {
@@ -45,7 +45,7 @@ const UpdateProduct = () => {
         name: updatedName,
         price: updatedPrice,
       };
-      await axios.put(`https://mycart-vercel-api.vercel.app/products/${_id}`, updatedProduct,{withCredentials: true});
+      await axios.put(`http://localhost:4000/products/${_id}`, updatedProduct,{withCredentials: true});
       closeModal();
       fetchProducts();
       Swal.fire({
