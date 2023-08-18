@@ -1,13 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "server/**/*.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "/server.js" }
-    ],
-    "env": {
-      "MONGODB_URL": "mongodb+srv://gilespi45:tqI0BweDTpLKon5U@mycart-vercel.d2famit.mongodb.net/?retryWrites=true&w=majority"
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@vercel/node"
     }
-  }
-  
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
