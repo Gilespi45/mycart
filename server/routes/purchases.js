@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
     res.json({ message: 'Purchase added successfully' });
   } catch (error) {
     console.error('Error adding purchase:', error);
-    res.status(500).json({ error: 'Server error' });
+    res.json({ error: 'Server error' });
   }
 });
 

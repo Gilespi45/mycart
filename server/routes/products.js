@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     res.json(products);
   } catch (error) {
     console.error('Error fetching products:', error);
-    res.status(500).json({ error: 'Server error' });
+    res.json({ error: 'Server error' });
   }
 });
 
@@ -31,7 +31,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     const image = req.file;
 
     if (!name || !price || !image) {
-      return res.status(400).json({ error: 'Missing required fields' });
+      return res.json({ error: 'Missing required fields' });
     }
 
     const newProduct = new Product({ name, price, image: image.filename });
@@ -39,7 +39,7 @@ router.post('/', upload.single('image'), async (req, res) => {
     res.json({ message: 'Product added successfully' });
   } catch (error) {
     console.error('Error adding product:', error);
-    res.status(500).json({ error: 'Server error' });
+    res.json({ error: 'Server error' });
   }
 });
 
@@ -48,12 +48,12 @@ router.delete('/:id', async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
     if (!product) {
-      return res.status(404).json({ error: 'Product not found' });
+      return res.json({ error: 'Product not found' });
     }
     res.json({ message: 'Product deleted successfully' });
   } catch (error) {
     console.error('Error deleting product:', error);
-    res.status(500).json({ error: 'Server error' });
+    res.json({ error: 'Server error' });
   }
 });
 
@@ -67,12 +67,12 @@ router.put('/:id', async (req, res) => {
       { new: true }
     );
     if (!updatedProduct) {
-      return res.status(404).json({ error: 'Product not found' });
+      return res.json({ error: 'Product not found' });
     }
     res.json(updatedProduct);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    res.json({ error: 'Server error' });
   }
 });
 
