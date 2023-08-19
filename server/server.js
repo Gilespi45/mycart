@@ -53,7 +53,6 @@ mongoose
     console.log(purchase);
   };
   mongoConnect();
-
 // API routes
 app.use("/users", userRoutes);
 app.use("/products", productRoutes);
