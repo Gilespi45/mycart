@@ -3,9 +3,9 @@ import axios from 'axios';
 import '../css/buyproduct.css';
 import Swal from 'sweetalert2';
 
-const productApiUrl = 'https://mycart-vercel-api.vercel.app/products';
-const userApiUrl = 'https://mycart-vercel-api.vercel.app/users';
-const purchaseApiUrl = 'https://mycart-vercel-api.vercel.app/purchases';
+const productApiUrl = 'https://mycart-api.vercel.app/products';
+const userApiUrl = 'https://mycart-api.vercel.app/users';
+const purchaseApiUrl = 'https://mycart-api.vercel.app/purchases';
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -60,7 +60,7 @@ function Products() {
         {products.map((product) => (
           <div className='card' key={product._id}>
             <div>
-              <img src={`https://mycart-vercel-api.vercel.app/static/img/${product.image}`} alt={product.name} />
+              <img src={`https://mycart-api.vercel.app/static/img/${product.image}`} alt={product.name} />
               <h3>{product.name}</h3>
               <p>Price: {product.price}</p>
               <select

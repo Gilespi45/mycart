@@ -8,7 +8,7 @@ function Users() {
   useEffect(() => {
     fetchUsers();
   }, []);
-  const userApiUrl = 'https://mycart-vercel-api.vercel.app/users';
+  const userApiUrl = 'https://mycart-api.vercel.app/users';
 
   const fetchUsers = async () => {
     try {

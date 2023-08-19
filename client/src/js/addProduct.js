@@ -4,7 +4,7 @@ import '../css/addproduct.css'
 import Swal from 'sweetalert2';
 
 
-const productApiUrl = 'https://mycart-vercel-api.vercel.app/products';
+const productApiUrl = 'https://mycart-api.vercel.app/products';
 
 const AddProduct = () => {
   const [name, setName] = useState('');
